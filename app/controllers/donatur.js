@@ -53,7 +53,7 @@ router.post('/v1/donatur', (req, res) => {
 		"alamat_lengkap": body.alamat,
 		// "token": body.token, /*sek, lali flow token*/
 		"akun_bank": body.akun_bank
-	}, (err, creative) => {
+	}, (err, donatur) => {
 		if(err) {
 			return handleError(err);
 		} else {
@@ -76,7 +76,7 @@ router.put('/v1/donatur/:id', (req, res) => {
 		} else {
 			Donatur.updateOne({_id: data._id}, newData, (err, cb) => {
 				res.status(200).json({
-					message: 'Crew '+data.nama+' edited',
+					message: 'Donatur '+ data.nama +' edited',
 					result: data
 				})
 			})
